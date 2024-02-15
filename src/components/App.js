@@ -9,7 +9,7 @@ const App = () => {
       <h2 id="review-heading">Our Reviews</h2>
       <div className="review">
         <div className="author">
-          <h3 id={"author-" + arr[next].id}>{arr[next].name}</h3>
+          <h3 id={"author-1"}>{arr[next].name}</h3>
         </div>
         <h4 className="job" id="job">
           {arr[next].job}
