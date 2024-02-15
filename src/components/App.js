@@ -8,7 +8,7 @@ const App = () => {
     <div className="review container">
       <h2 id="review-heading">Our Reviews</h2>
       <div className="review">
-        <div className="author">
+        <div className="author" id={"author-1" + arr[next].id}>
           <h3>
             <a href="#" id={"author-1" + arr[next].id}>
               {arr[next].id}
