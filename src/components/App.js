@@ -5,33 +5,6 @@ import arr from "./Data";
 const App = () => {
   let [next, setnext] = useState(0);
 
-  function handlePreviousClick() {
-    if (next == 0) {
-      setnext(3);
-    } else {
-      setnext(next - 1);
-    }
-  }
-
-  function hangleNextClick() {
-    if (next == 3) {
-      setnext(0);
-    } else {
-      setnext(next + 1);
-    }
-  }
-
-  function handleRandomClick() {
-    let randomnext;
-
-    do {
-      randomnext = Math.floor(Math.random() * arr.length); // Generate a random number between 0 and 3
-    } while (randomnext === next); // Loop until the random next is different from the current value
-
-    setnext(randomnext);
-    console.log(randomnext);
-  }
-
   return (
     <div>
       <h1 id="review-heading">Our Reviews</h1>
@@ -47,13 +20,24 @@ const App = () => {
           <p className="info">Text: {arr[next].text}</p>
         </div>
         <div>
-          <button className="prev-btn" onClick={handlePreviousClick}>
+          <button
+            className="prev-btn"
+            onClick={() => (next == 0 ? setnext(0) : setnext(next - 1))}
+          >
             Previous
           </button>
-          <button className="next-btn" onClick={hangleNextClick}>
+          <button
+            className="next-btn"
+            onClick={() =>
+              arr.length - 1 == next ? setnext(next) : setnext(next + 1)
+            }
+          >
             Next
           </button>
-          <button className="random-btn" onClick={handleRandomClick}>
+          <button
+            className="random-btn"
+            onClick={() => setnext(Math.floor(Math.random() * arr.length))}
+          >
             surprise me
           </button>
         </div>
