@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div className="review container">
       <h2 id="review-heading">Our Reviews</h2>
-      <div className="review">
-        <div className="author" id={"author-1" + arr[next].id}>
+      <div className="review" id={"author-" + arr[next].id}>
+        <div className="author">
           <h3>{arr[next].name}</h3>
         </div>
         <h4 className="job" id="job">
