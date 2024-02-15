@@ -6,11 +6,19 @@ const App = () => {
   let [next, setnext] = useState(0);
 
   function handlePreviousClick() {
-    next == 0 ? setnext(0) : setnext(next - 1);
+    if (next === 0) {
+      setnext(arr.length - 1);
+    } else {
+      setnext(next - 1);
+    }
   }
 
   function hangleNextClick() {
-    arr.length - 1 == next ? setnext(next) : setnext(next + 1);
+    if (next === arr.length - 1) {
+      setnext(0);
+    } else {
+      setnext(next + 1);
+    }
   }
 
   function handleRandomClick() {
