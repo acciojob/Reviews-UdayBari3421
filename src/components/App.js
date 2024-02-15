@@ -10,9 +10,9 @@ const App = () => {
       <div className="review">
         <div className="author" id={"author-1" + arr[next].id}>
           <h3>
-            <a href="#" id={"author-1" + arr[next].id}>
+            {/* <a href="#" id={"author-1" + arr[next].id}>
               {arr[next].id}
-            </a>
+            </a> */}
             {arr[next].name}
           </h3>
         </div>
