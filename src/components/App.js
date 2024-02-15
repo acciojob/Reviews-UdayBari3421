@@ -9,21 +9,14 @@ const App = () => {
       <h2 id="review-heading">Our Reviews</h2>
       <div className="review">
         <div className="author" id={"author-" + arr[next].id}>
-          <h2>{arr[next].name}</h2>
-          <h2 className="job" id="job">
-            {arr[next].job}
-          </h2>
-          <h3 className="info" id="info">
-            {arr[next].text}
-          </h3>
-          <img
-            className="person-img"
-            id="person-img"
-            src={arr[next].image}
-            alt={arr[next].name}
-          />
+          <h3>{arr[next].name}</h3>
         </div>
-
+        <h4 className="job" id="job">
+          {arr[next].job}
+        </h4>
+        <p className="info" id="info">
+          {arr[next].text}
+        </p>
         <div className="buttons">
           <button
             className="prev-btn"
@@ -32,6 +25,12 @@ const App = () => {
           >
             Previous
           </button>
+          <img
+            className="person-img"
+            id="person-img"
+            src={arr[next].image}
+            alt={arr[next].name}
+          />
           <button
             id="next-btn"
             className="next-btn"
