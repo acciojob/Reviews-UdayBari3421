@@ -11,7 +11,7 @@ const App = () => {
         <div className="author">
           <h3 id={"author-" + arr[next].id}>{arr[next].name}</h3>
         </div>
-        <h4 className="" id="job">
+        <h4 className="job" id="job">
           {arr[next].job}
         </h4>
         <p className="info" id="info">
