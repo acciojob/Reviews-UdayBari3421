@@ -1,34 +1,35 @@
 import React, { useState } from "react";
-import data from "./Data";
+import "../styles/App.css";
+import arr from "./Data";
 
 const App = () => {
-  let [index, setIndex] = useState(0);
+  let [next, setnext] = useState(0);
 
   function handlePreviousClick() {
-    if (index == 0) {
-      setIndex(3);
+    if (next == 0) {
+      setnext(3);
     } else {
-      setIndex(index - 1);
+      setnext(next - 1);
     }
   }
 
   function hangleNextClick() {
-    if (index == 3) {
-      setIndex(0);
+    if (next == 3) {
+      setnext(0);
     } else {
-      setIndex(index + 1);
+      setnext(next + 1);
     }
   }
 
   function handleRandomClick() {
-    let randomIndex;
+    let randomnext;
 
     do {
-      randomIndex = Math.floor(Math.random() * 4); // Generate a random number between 0 and 3
-    } while (randomIndex === index); // Loop until the random index is different from the current value
+      randomnext = Math.floor(Math.random() * arr.length); // Generate a random number between 0 and 3
+    } while (randomnext === next); // Loop until the random next is different from the current value
 
-    setIndex(randomIndex);
-    console.log(randomIndex);
+    setnext(randomnext);
+    console.log(randomnext);
   }
 
   return (
@@ -36,14 +37,14 @@ const App = () => {
       <h1 id="review-heading">Our Reviews</h1>
       <div className="review">
         <div>
-          <img className="person-img" src={data[index].image}></img>
+          <img className="person-img" src={arr[next].image}></img>
         </div>
         <div>
-          <span className="author" id={`author-${index + 1}`}>
-            Name: {data[index].name}
+          <span className="author" id={"author-" + (next + 1)}>
+            Name: {arr[next].name}
           </span>
-          <p className="job">Job: {data[index].job}</p>
-          <p className="info">Text: {data[index].text}</p>
+          <p className="job">Job: {arr[next].job}</p>
+          <p className="info">Text: {arr[next].text}</p>
         </div>
         <div>
           <button className="prev-btn" onClick={handlePreviousClick}>
