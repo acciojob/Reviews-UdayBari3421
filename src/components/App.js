@@ -1,43 +1,58 @@
 import React, { useState } from "react";
-import "../styles/App.css";
-import arr from "./Data";
+import data from "./Data";
 
 const App = () => {
-  let [next, setNext] = useState(0);
+  let [index, setIndex] = useState(0);
+
+  function handlePreviousClick() {
+    if (index == 0) {
+      setIndex(3);
+    } else {
+      setIndex(index - 1);
+    }
+  }
+
+  function hangleNextClick() {
+    if (index == 3) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  }
+
+  function handleRandomClick() {
+    let randomIndex;
+
+    do {
+      randomIndex = Math.floor(Math.random() * 4); // Generate a random number between 0 and 3
+    } while (randomIndex === index); // Loop until the random index is different from the current value
+
+    setIndex(randomIndex);
+    console.log(randomIndex);
+  }
 
   return (
-    <div className="container">
+    <div>
       <h1 id="review-heading">Our Reviews</h1>
       <div className="review">
         <div>
-          <img className="person-img" src={arr[next].image}></img>
+          <img className="person-img" src={data[index].image}></img>
         </div>
         <div>
-          <span className="author" id={`author-${next + 1}`}>
-            <h2>Name: {arr[next].name}</h2>
+          <span className="author" id={`author-${index + 1}`}>
+            Name: {data[index].name}
           </span>
-          <h3 className="job">Job: {arr[next].job}</h3>
-          <p className="info">Text: {arr[next].text}</p>
+          <p className="job">Job: {data[index].job}</p>
+          <p className="info">Text: {data[index].text}</p>
         </div>
         <div>
-          <button
-            className="prev-btn"
-            onClick={() => (next == 0 ? setNext(0) : setNext(next - 1))}
-          >
+          <button className="prev-btn" onClick={handlePreviousClick}>
             Previous
           </button>
-          <button
-            className="next-btn"
-            onClick={() =>
-              next == arr.length - 1 ? setNext(next) : setNext(next + 1)
-            }
-          >
+          <button className="next-btn" onClick={hangleNextClick}>
             Next
           </button>
-          <button
-            className="random-btn"
-            onClick={() => setNext(Math.floor(Math.random() * arr.length))}
-          >
+          <button className="random-btn" onClick={handleRandomClick}>
             surprise me
           </button>
         </div>
