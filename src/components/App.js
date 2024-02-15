@@ -5,6 +5,18 @@ import arr from "./Data";
 const App = () => {
   let [next, setnext] = useState(0);
 
+  function handlePreviousClick() {
+    next == 0 ? setnext(0) : setnext(next - 1);
+  }
+
+  function hangleNextClick() {
+    arr.length - 1 == next ? setnext(next) : setnext(next + 1);
+  }
+
+  function handleRandomClick() {
+    setnext(Math.floor(Math.random() * arr.length));
+  }
+
   return (
     <div>
       <h1 id="review-heading">Our Reviews</h1>
@@ -20,24 +32,13 @@ const App = () => {
           <p className="info">Text: {arr[next].text}</p>
         </div>
         <div>
-          <button
-            className="prev-btn"
-            onClick={() => (next == 0 ? setnext(0) : setnext(next - 1))}
-          >
+          <button className="prev-btn" onClick={handlePreviousClick}>
             Previous
           </button>
-          <button
-            className="next-btn"
-            onClick={() =>
-              arr.length - 1 == next ? setnext(next) : setnext(next + 1)
-            }
-          >
+          <button className="next-btn" onClick={hangleNextClick}>
             Next
           </button>
-          <button
-            className="random-btn"
-            onClick={() => setnext(Math.floor(Math.random() * arr.length))}
-          >
+          <button className="random-btn" onClick={handleRandomClick}>
             surprise me
           </button>
         </div>
