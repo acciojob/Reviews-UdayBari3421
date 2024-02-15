@@ -13,41 +13,42 @@ const App = () => {
           <h2 className="job" id="job">
             {arr[next].job}
           </h2>
-          <p className="info" id="info">
+          <h3 className="info" id="info">
             {arr[next].text}
-          </p>
-          <div className="buttons">
-            <button
-              className="prev-btn"
-              id="prev-btn"
-              onClick={() => (next === 0 ? setNext(0) : setNext(next - 1))}
-            >
-              Previous
-            </button>
-            <img
-              className="person-img"
-              id="person-img"
-              src={arr[next].image}
-              alt={arr[next].name}
-            />
-            <button
-              id="next-btn"
-              className="next-btn"
-              onClick={() =>
-                next === arr.length - 1 ? setNext(next) : setNext(next + 1)
-              }
-            >
-              Next
-            </button>
-          </div>
+          </h3>
+          <img
+            className="person-img"
+            id="person-img"
+            src={arr[next].image}
+            alt={arr[next].name}
+          />
+        </div>
+
+        <div className="buttons">
           <button
-            id="random-btn"
-            className="random-btn"
-            onClick={() => setNext(Math.floor(Math.random() * arr.length))}
+            className="prev-btn"
+            id="prev-btn"
+            onClick={() => (next === 0 ? setNext(0) : setNext(next - 1))}
           >
-            surprise me
+            Previous
+          </button>
+          <button
+            id="next-btn"
+            className="next-btn"
+            onClick={() =>
+              next === arr.length - 1 ? setNext(next) : setNext(next + 1)
+            }
+          >
+            Next
           </button>
         </div>
+        <button
+          id="random-btn"
+          className="random-btn"
+          onClick={() => setNext(Math.floor(Math.random() * arr.length))}
+        >
+          surprise me
+        </button>
       </div>
     </div>
   );
