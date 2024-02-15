@@ -26,7 +26,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 id="review-heading">Our Reviews</h1>
       <div className="review">
         <div>
